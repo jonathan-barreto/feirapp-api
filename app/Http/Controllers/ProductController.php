@@ -22,6 +22,19 @@ class ProductController extends Controller
     return response()->json(["response" => "Not found products."], 404);
   }
 
+  public function findByName($name)
+  {
+    $products = ProductModel::where('name', 'like', '%' . $name . '%')->simplePaginate(10);
+
+    $productsArray = $products->toArray();
+
+    if ($productsArray["data"] != null) {
+      return response()->json($products);
+    }
+
+    return response()->json(["response" => "Not found products"], 404);
+  }
+
   public function findProductByIds(Request $request)
   {
     $productIds = json_decode($request->getContent())->idProducts;

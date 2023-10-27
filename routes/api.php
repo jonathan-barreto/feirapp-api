@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/products', [ProductController::class, 'index']);
 
 Route::post('/products', [ProductController::class, 'findProductByIds']);
+
+Route::get('/products', [ProductController::class, 'index']);
+
+Route::get('/products/{name}', [ProductController::class, 'findByName']);
 
 Route::get('/products/{category}', [ProductController::class, 'findByCategory']);
 
