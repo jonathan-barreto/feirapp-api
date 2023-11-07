@@ -19,9 +19,9 @@ Route::post('/products', [ProductController::class, 'findProductByIds']);
 
 Route::get('/products', [ProductController::class, 'index']);
 
-Route::get('/products/{name}', [ProductController::class, 'findByName']);
+Route::get('/products/name/{name}', [ProductController::class, 'findByName']);
 
-Route::get('/products/{category}', [ProductController::class, 'findByCategory']);
+Route::get('/products/category/{category}', [ProductController::class, 'findByCategory']);
 
 Route::get('/products/order/{order}/sorted-by/{sortedBy}', [ProductController::class, 'findProductsOrderedBy']);
 

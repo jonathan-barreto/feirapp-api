@@ -11,52 +11,48 @@ class ProductController extends Controller
   //
   public function index()
   {
-    $products = DB::table('products')->simplePaginate(10);
+    $products = ProductModel::simplePaginate(10);
 
-    $productsArray = $products->toArray();
-
-    if ($productsArray["data"] != null) {
-      return response()->json($products);
+    if ($products->isEmpty()) {
+      return response()->json(["response" => "Not found products."], 404);
     }
 
-    return response()->json(["response" => "Not found products."], 404);
+    return response()->json($products);
   }
 
   public function findByName($name)
   {
     $products = ProductModel::where('name', 'like', '%' . $name . '%')->simplePaginate(10);
 
-    $productsArray = $products->toArray();
-
-    if ($productsArray["data"] != null) {
-      return response()->json($products);
+    if ($products->isEmpty()) {
+      return response()->json(["response" => "Not found products"], 404);
     }
 
-    return response()->json(["response" => "Not found products"], 404);
+    return response()->json($products);
   }
 
   public function findProductByIds(Request $request)
   {
-    $productIds = json_decode($request->getContent())->idProducts;
+    $productIds = json_decode($request->getContent())->idsProducts;
 
-    $products = ProductModel::select("*")->find($productIds);
+    $products = ProductModel::find($productIds);
 
-    $response = ["products" => $products];
+    if (!$products) {
+      return response()->json(["response" => "Products not found"], 404);
+    }
 
-    return response()->json($response);
+    return response()->json(["products" => $products]);
   }
 
   public function findByCategory($category)
   {
     $products = ProductModel::where('category', $category)->simplePaginate(10);
 
-    $productsArray = $products->toArray();
-
-    if ($productsArray["data"] != null) {
-      return response()->json($products);
+    if ($products->isEmpty()) {
+      return response()->json(["response" => "Category not found."], 404);
     }
 
-    return response()->json(["response" => "Category not found."], 404);
+    return response()->json($products);
   }
 
   public function findProductsOrderedBy($order, $sorted)
