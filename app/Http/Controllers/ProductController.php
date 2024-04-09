@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
   //
-  public function index()
+  public function getAllProducts()
   {
     $products = ProductModel::simplePaginate(10);
 
@@ -20,28 +20,27 @@ class ProductController extends Controller
     return ProductResource::collection($products);
   }
 
-  public function findByName($name)
+  public function getProductByName($name)
   {
     $products = ProductModel::where('name', 'like', '%' . $name . '%')->simplePaginate(10);
+
     return ProductResource::collection($products);
   }
 
-  public function findProductByIds(Request $request)
+  public function getProductsByIds(Request $request)
   {
     $productIds = json_decode($request->getContent())->idsProducts;
 
-    $products = ProductModel::whereIn('id', $productIds)
-        ->orderByRaw(ProductModel::raw("FIELD(id, " . implode(',', $productIds) . ")"))
-        ->get();
+    $products = ProductModel::whereIn('id', $productIds)->orderByRaw(ProductModel::raw("FIELD(id, " . implode(',', $productIds) . ")"))->get();
 
     if (!$products) {
-        return ProductResource::collection([]);
+      return ProductResource::collection([]);
     }
 
     return response()->json(["products" => $products]);
   }
 
-  public function findByCategory($category)
+  public function getProductsByCategory($category)
   {
     $products = ProductModel::where('category', $category)->simplePaginate(10);
 
@@ -52,7 +51,7 @@ class ProductController extends Controller
     return response()->json($products);
   }
 
-  public function findProductsOrderedBy($order, $sorted)
+  public function getProductsOrderedBy($order, $sorted)
   {
     try {
       $products = ProductModel::orderBy($order, $sorted)->simplePaginate(10);
