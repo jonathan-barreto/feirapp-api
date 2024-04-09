@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/products', [ProductController::class, 'findProductByIds']);
+Route::get('/products', [ProductController::class, 'getAllProducts']);
 
-Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/name/{name}', [ProductController::class, 'getProductByName']);
 
-Route::get('/products/name/{name}', [ProductController::class, 'findByName']);
+Route::post('/products', [ProductController::class, 'getProductsByIds']);
 
-Route::get('/products/category/{category}', [ProductController::class, 'findByCategory']);
+Route::get('/products/category/{category}', [ProductController::class, 'getProductsByCategory']);
 
-Route::get('/products/order/{order}/sorted-by/{sortedBy}', [ProductController::class, 'findProductsOrderedBy']);
+Route::get('/products/order/{order}/sorted-by/{sortedBy}', [ProductController::class, 'getProductsOrderedBy']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
