@@ -25,6 +25,8 @@ Route::get('/products/category/{category}', [ProductController::class, 'getProdu
 
 Route::get('/products/order/{order}/sorted-by/{sortedBy}', [ProductController::class, 'getProductsOrderedBy']);
 
+Route::get('/discounted-products', [ProductController::class, 'getDiscountedProducts']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });

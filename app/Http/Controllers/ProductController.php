@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-  //
   public function getAllProducts()
   {
     $products = ProductModel::simplePaginate(10);
@@ -57,7 +56,14 @@ class ProductController extends Controller
       $products = ProductModel::orderBy($order, $sorted)->simplePaginate(10);
       return response()->json($products);
     } catch (\Exception $e) {
-      return response()->json(["response" => $e->getMessage()], 500);
+      return response()->json(["message" => $e->getMessage()], 200);
     }
+  }
+
+  public function getDiscountedProducts()
+  {
+    $products = ProductModel::where('discount', '!=', 0)->get();
+
+    return response()->json($products);
   }
 }
