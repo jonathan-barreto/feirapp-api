@@ -64,6 +64,6 @@ class ProductController extends Controller
   {
     $products = ProductModel::where('discount', '!=', 0)->get();
 
-    return response()->json($products);
+    return ProductResource::collection($products);
   }
 }
