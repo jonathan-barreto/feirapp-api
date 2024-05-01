@@ -20,6 +20,9 @@ class CreateProductTable extends Migration
             $table->string('unit');
             $table->string('category');
             $table->string('image');
+            $table->string('weight')->nullable();
+            $table->integer('discount')->default(0);
+            $table->string('discount_price')->nullable();
         });
     }
 
