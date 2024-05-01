@@ -42,6 +42,15 @@ class UpdateDiscounts extends Command
 
         foreach ($products as $product) {
             $product->discount = 10;
+
+            $discountAmount = $product->price * ($product->discount / 100);
+
+            $discountedPrice = $product->price - $discountAmount;
+
+            $discountedPrice = round($discountedPrice, 2);
+
+            $product->discount_price = $discountedPrice;
+
             $product->save();
         }
 

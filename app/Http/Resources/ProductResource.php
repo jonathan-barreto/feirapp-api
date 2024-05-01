@@ -21,7 +21,9 @@ class ProductResource extends JsonResource
       'unit' => $this->unit,
       'price' => $this->price,
       'image' => $this->image,
-      'discount' => $this->discount,
+      'weight' => $this->when($this->weight !== null, $this->weight),
+      'discount' => $this->when($this->discount !== null, $this->discount),
+      'discount_price' => $this->when($this->discount_price !== null, $this->discount_price),
     ];
   }
 }
