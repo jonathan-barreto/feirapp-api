@@ -58,6 +58,22 @@ class ProductController extends Controller
     return ProductResource::collection($products);
   }
 
+  
+
+  public function getProductsByIds(Request $request)
+  {
+    $productIds = json_decode($request->getContent())->idsProducts;
+
+    $products = ProductModel::whereIn('id', $productIds)->orderByRaw(ProductModel::raw("FIELD(id, " . implode(',', $productIds) . ")"))->get();
+
+    if (!$products) {
+      return ProductResource::collection([]);
+    }
+
+    return response()->json(["products" => $products]);
+  }
+
+
   public function getDiscountedProducts()
   {
     $products = ProductModel::where('discount', '!=', 0)->get();
