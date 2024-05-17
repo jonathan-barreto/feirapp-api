@@ -31,25 +31,28 @@ class ProductController extends Controller
 
     $query = ProductModel::query();
 
-    if ($request->has('name')) {
+    if ($request->filled('name')) {
       $query->where('name', 'like', '%' . $name . '%');
     }
 
-    if ($request->has('category')) {
+    if ($request->filled('category')) {
       $query->where('category', $category);
     }
 
-    if ($request->has('min_price')) {
+    if ($request->filled('min_price')) {
       $query->where('price', '>=', $minPrice);
     }
 
-    if ($request->has('max_price')) {
+    if ($request->filled('max_price')) {
       $query->where('price', '<=', $maxPrice);
     }
 
-    $query->orderBy('name', $order);
+    if ($request->filled('order')) {
+      $query->orderBy('name', $order);
+    }
 
     $products = $query->simplePaginate(10);
+    $products->appends($request->all());
 
     if ($products->isEmpty()) {
       return ProductResource::collection([]);
@@ -57,8 +60,6 @@ class ProductController extends Controller
 
     return ProductResource::collection($products);
   }
-
-  
 
   public function getProductsByIds(Request $request)
   {
