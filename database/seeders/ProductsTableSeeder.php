@@ -38,7 +38,7 @@ class ProductsTableSeeder extends Seeder
       ],
       [
         'name' => 'Abóbora',
-        'price' => 20.01,
+        'price' => 20.00,
         'unit' => 'unidade',
         'category' => 'vegetal',
         'image' => 'abobora.png',
