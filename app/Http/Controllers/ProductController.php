@@ -61,6 +61,17 @@ class ProductController extends Controller
     return ProductResource::collection($products);
   }
 
+  public function getProductById(Request $request)
+  {
+    $product = ProductModel::find($request->id);
+
+    if($product){
+      return ProductResource::collection([$product]);
+    } else {
+      return ProductResource::collection([]);
+    }
+  }
+
   public function getProductsByIds(Request $request)
   {
     $productIds = json_decode($request->getContent())->idsProducts;

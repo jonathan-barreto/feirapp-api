@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\ProductModel;
 use Illuminate\Console\Command;
 
+
 class UpdateDiscounts extends Command
 {
     /**
