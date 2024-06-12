@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductResource;
-use App\Models\ProductModel;
+use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,7 +29,7 @@ class ProductController extends Controller
     $maxPrice =  $request->input('max_price');
     $order = $request->input('order', 'asc');
 
-    $query = ProductModel::query();
+    $query = Products::query();
 
     if ($request->filled('name')) {
       $query->where('name', 'like', '%' . $name . '%');
@@ -63,7 +63,7 @@ class ProductController extends Controller
 
   public function getProductById(Request $request)
   {
-    $product = ProductModel::find($request->id);
+    $product = Products::find($request->id);
 
     if($product){
       return ProductResource::collection([$product]);
@@ -76,7 +76,7 @@ class ProductController extends Controller
   {
     $productIds = json_decode($request->getContent())->idsProducts;
 
-    $products = ProductModel::whereIn('id', $productIds)->orderByRaw(ProductModel::raw("FIELD(id, " . implode(',', $productIds) . ")"))->get();
+    $products = Products::whereIn('id', $productIds)->orderByRaw(Products::raw("FIELD(id, " . implode(',', $productIds) . ")"))->get();
 
     if (!$products) {
       return ProductResource::collection([]);
@@ -88,7 +88,7 @@ class ProductController extends Controller
 
   public function getDiscountedProducts()
   {
-    $products = ProductModel::where('discount', '!=', 0)->get();
+    $products = Products::where('discount', '!=', 0)->get();
     return ProductResource::collection($products);
   }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\UserResource;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -15,7 +16,7 @@ class UserController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function register(Request $request)
     {
         try {
             //code...
@@ -25,20 +26,22 @@ class UserController extends Controller
                 'password' => 'required|string|min:8',
                 'number_contact' => 'required|string|max:15',
             ]);
-    
-            $user = User::create([
-                'name' => $validatedData['name'],
-                'email' => $validatedData['email'],
-                'password' => Hash::make($validatedData['password']), 
-                'number_contact' => $validatedData['number_contact'],
-            ]);
-            
-            return new UserResource($user);
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => 'Validation failed',
-                'errors' => $e->errors(),
-            ], 422);
+        } catch (ValidationException $e) {
+            $errors = $e->validator->errors();
+
+            $firstErrorMessage = collect($errors->messages())->flatten()->first();
+
+            $userResource = new UserResource(null, $firstErrorMessage);
+
+            return response()->json($userResource->toArray($request), 422);
         }
+
+
+        //     $user = User::create([
+        //         'name' => $validatedData['name'],
+        //         'email' => $validatedData['email'],
+        //         'password' => Hash::make($validatedData['password']), 
+        //         'number_contact' => $validatedData['number_contact'],
+        //     ]);
     }
 }

@@ -37,7 +37,7 @@ class UpdateDiscounts extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): void
     {
         $products = ProductModel::inRandomOrder()->limit(10)->get();
 

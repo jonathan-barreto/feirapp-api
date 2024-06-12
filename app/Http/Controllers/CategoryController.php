@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\CategoryResource;
-use App\Models\CategoriesModel;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -11,7 +11,7 @@ class CategoryController extends Controller
     //
     public function getCategories()
     {
-        $categories = CategoriesModel::all();
+        $categories = Categories::all();
         return CategoryResource::collection($categories);
     }
 }
