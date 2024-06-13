@@ -11,11 +11,6 @@ use Illuminate\Validation\ValidationException;
 class UserController extends Controller
 {
     //
-    public function index(Request $request)
-    {
-        //
-    }
-
     public function register(Request $request)
     {
         try {
@@ -36,12 +31,23 @@ class UserController extends Controller
             return response()->json($userResource->toArray($request), 422);
         }
 
+        try {
+            //code...
+            User::create([
+                'name' => $validatedData['name'],
+                'email' => $validatedData['email'],
+                'password' => Hash::make($validatedData['password']),
+                'number_contact' => $validatedData['number_contact'],
+            ]);
 
-        //     $user = User::create([
-        //         'name' => $validatedData['name'],
-        //         'email' => $validatedData['email'],
-        //         'password' => Hash::make($validatedData['password']), 
-        //         'number_contact' => $validatedData['number_contact'],
-        //     ]);
+            return new UserResource(null, 'Registro realizado com sucesso!');
+        } catch (\Exception $e) {
+            return new UserResource(null, $e->getMessage());
+        }
+    }
+
+    public function index(Request $request)
+    {
+        //
     }
 }

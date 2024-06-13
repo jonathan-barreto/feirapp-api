@@ -9,7 +9,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image-laravel": "^1.2",
         "laravel/framework": "^8.75",
-        "laravel/sanctum": "^2.11",
+        "laravel/sanctum": "^2.15",
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
