@@ -7,11 +7,17 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\UserResource;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     //
-    public function register(Request $request)
+    public function index(Request $request)
+    {
+        //
+    }
+
+    public function store(Request $request)
     {
         try {
             //code...
@@ -46,8 +52,38 @@ class UserController extends Controller
         }
     }
 
-    public function index(Request $request)
+    public function login(Request $request)
     {
-        //
+        $cretendials = $request->only('email', 'password');
+
+        $tokenData = [];
+
+        if (Auth::attempt($cretendials)) {
+            $user = $request->user();
+            $token = $user->createToken('auth_token')->plainTextToken;
+
+            $tokenData = [
+                'acess_token' => $token,
+                'token_type' => 'Bearer',
+            ];
+
+            return response()->json([
+                'data' => $tokenData,
+                'message' => 'Login realizado com sucesso!',
+            ]);
+        }
+
+        return response()->json([
+            'data' => $tokenData,
+            'message' => 'Usúario inválido',
+        ]);
+    }
+
+    public function show(Request $request)
+    {
+        return response()->json([
+            'data' => $request->user(),
+            'message' => '',
+        ]);
     }
 }

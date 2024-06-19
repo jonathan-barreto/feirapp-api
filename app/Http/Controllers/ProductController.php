@@ -6,21 +6,30 @@ use App\Http\Resources\ProductResource;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
 {
-  public function getAllProducts(Request $request)
+  public function index(Request $request)
   {
-    $validator = Validator::make($request->all(), [
-      'name' => 'string|nullable',
-      'category' => 'string|nullable',
-      'min_price' => 'numeric|nullable',
-      'max_price' => 'numeric|nullable',
-      'order' => 'string|nullable|in:asc,desc',
-    ]);
+    try {
+      //code...
+      $validator = Validator::make($request->all(), [
+        'name' => 'string|nullable',
+        'category' => 'string|nullable',
+        'min_price' => 'numeric|nullable',
+        'max_price' => 'numeric|nullable',
+        'order' => 'string|nullable|in:asc,desc',
+      ]);
+    } catch (ValidationException $e) {
+      //
+      $errors = $e->validator->errors();
+      $firstErrorMessage = collect($errors->messages())->flatten()->first();
 
-    if ($validator->fails()) {
-      return response()->json(['errors' => $validator->errors()], 400);
+      return response()->json([
+        'data' => [],
+        'message' => $firstErrorMessage,
+      ], 422);
     }
 
     $name = $request->input('name');
@@ -40,10 +49,12 @@ class ProductController extends Controller
     }
 
     if ($request->filled('min_price')) {
+      $minPrice = intval($request->input('min_price'));
       $query->where('price', '>=', $minPrice);
     }
 
     if ($request->filled('max_price')) {
+      $maxPrice = intval($request->input('max_price'));
       $query->where('price', '<=', $maxPrice);
     }
 
@@ -55,17 +66,20 @@ class ProductController extends Controller
     $products->appends($request->all());
 
     if ($products->isEmpty()) {
-      return ProductResource::collection([]);
+      return response()->json([
+        'data' => [],
+        'message' => 'Nenhum produto foi encontrado.',
+      ], 200);
     }
 
-    return ProductResource::collection($products);
+    return response()->json($products, 200);
   }
 
-  public function getProductById(Request $request)
+  public function show(Request $request)
   {
     $product = Products::find($request->id);
 
-    if($product){
+    if ($product) {
       return ProductResource::collection([$product]);
     } else {
       return ProductResource::collection([]);

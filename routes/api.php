@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,38 +19,22 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::post('/products', [ProductController::class, 'getAllProducts']);
+Route::post('/user/register', [UserController::class, 'store']);
+Route::post('/user/login', [UserController::class, 'login']);
 
-// Route::get('/product/{id}', [ProductController::class, 'getProductById']);
+Route::middleware(['auth:sanctum'])->group(function () {
+  // Product route
+  Route::post('/products', [ProductController::class, 'index']);
+  Route::get('/product/{id}', [ProductController::class, 'show']);
+  Route::post('/products-by-ids', [ProductController::class, 'getProductsByIds']);
+  Route::get('/discounted-products', [ProductController::class, 'getDiscountedProducts']);
 
-// Route::post('/products-by-ids', [ProductController::class, 'getProductsByIds']);
+  // Category route
+  Route::get('/categories', [CategoryController::class, 'getCategories']);
 
-// Route::get('/discounted-products', [ProductController::class, 'getDiscountedProducts']);
+  // Image route
+  Route::get('/image/{imageName}', [ImageController::class, 'show']);
 
-// Route::get('/categories', [CategoryController::class, 'getCategories']);
-
-// Route::get('/image/{imageName}', [ImageController::class, 'show']);
-
-Route::post('/user/register', [UserController::class, 'register']);
-
-Route::post('/user/login', function (Request $request) {
-  $cretendials = $request->only('email', 'password');
-
-  if (Auth::attempt($cretendials)) {
-    $user = $request->user();
-    $token = $user->createToken('auth_token')->plainTextToken;
-
-    return response()->json([
-      'acess_token' => $token,
-      'token_type' => 'Bearer',
-    ]);
-  }
-
-  return response()->json([
-    'message' => 'Usúario inválido',
-  ]);
-});
-
-Route::middleware('auth:sanctum')->get('/user/profile', function (Request $request) {
-  return $request->user();
+  // User route
+  Route::get('/user/profile', [UserController::class, 'show']);
 });
