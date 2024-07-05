@@ -96,7 +96,10 @@ class ProductController extends Controller
       return ProductResource::collection([]);
     }
 
-    return response()->json(["products" => $products]);
+    return response()->json([
+      "data" => $products,
+      "message" => null,
+    ]);
   }
 
 
