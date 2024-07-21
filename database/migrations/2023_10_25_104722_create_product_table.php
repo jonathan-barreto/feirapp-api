@@ -17,12 +17,11 @@ class CreateProductTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('price');
-            $table->string('unit');
-            $table->string('category');
-            $table->string('image');
-            $table->string('weight')->nullable();
-            $table->integer('discount')->nullable();
             $table->string('discount_price')->nullable();
+            $table->string('category');
+            $table->string('unit');
+            $table->string('weight')->nullable();
+            $table->string('image');
         });
     }
 

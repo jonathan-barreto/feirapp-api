@@ -19,23 +19,19 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::post('/user/register', [UserController::class, 'store']);
 Route::post('/user/login', [UserController::class, 'login']);
+Route::post('/user/register', [UserController::class, 'store']);
+
+Route::get('/image/{imageName}', [ImageController::class, 'show']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
-  // Product route
-  Route::post('/products', [ProductController::class, 'index']);
-  Route::get('/product/{id}', [ProductController::class, 'show']);
-  Route::post('/products-by-ids', [ProductController::class, 'getProductsByIds']);
-  Route::get('/discounted-products', [ProductController::class, 'getDiscountedProducts']);
-
-  // Category route
-  Route::get('/categories', [CategoryController::class, 'getCategories']);
-
-  // Image route
-  Route::get('/image/{imageName}', [ImageController::class, 'show']);
-
   // User route
   Route::get('/user/profile', [UserController::class, 'show']);
   Route::get('/user/logout', [UserController::class, 'logout']);
+
+  // Product route
+  Route::post('/products', [ProductController::class, 'getProducts']);
+  Route::get('/product/{id}', [ProductController::class, 'getProduct']);
+  Route::post('/products-by-ids', [ProductController::class, 'getProductsByIds']);
+  Route::get('/discounted-products', [ProductController::class, 'getDiscountedProducts']);
 });

@@ -25,7 +25,7 @@ class UserController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:8',
-                'number_contact' => 'required|string|max:15',
+                'whatsapp' => 'required|string|max:15',
             ]);
         } catch (ValidationException $e) {
             $errors = $e->validator->errors();
@@ -43,7 +43,7 @@ class UserController extends Controller
                 'name' => $validatedData['name'],
                 'email' => $validatedData['email'],
                 'password' => Hash::make($validatedData['password']),
-                'number_contact' => $validatedData['number_contact'],
+                'whatsapp' => $validatedData['whatsapp'],
             ]);
 
             return new UserResource(null, 'Registro realizado com sucesso!');

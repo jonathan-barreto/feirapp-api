@@ -10,11 +10,12 @@ use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
 {
-  public function index(Request $request)
+  //
+  public function getProducts(Request $request)
   {
     try {
       //code...
-      $validator = Validator::make($request->all(), [
+      Validator::make($request->all(), [
         'name' => 'string|nullable',
         'category' => 'string|nullable',
         'min_price' => 'numeric|nullable',
@@ -27,7 +28,7 @@ class ProductController extends Controller
       $firstErrorMessage = collect($errors->messages())->flatten()->first();
 
       return response()->json([
-        'data' => [],
+        'data' => null,
         'message' => $firstErrorMessage,
       ], 422);
     }
@@ -72,10 +73,13 @@ class ProductController extends Controller
       ], 200);
     }
 
-    return response()->json($products, 200);
+    return response()->json([
+      'data' => $products,
+      'message' => 'Nenhum produto foi encontrado.',
+    ], 200);
   }
 
-  public function show(Request $request)
+  public function getProduct(Request $request)
   {
     $product = Products::find($request->id);
 

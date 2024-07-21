@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\ProductModel;
+use App\Models\Products;
 use Illuminate\Console\Command;
 
 
@@ -39,12 +40,10 @@ class UpdateDiscounts extends Command
      */
     public function handle(): void
     {
-        $products = ProductModel::inRandomOrder()->limit(10)->get();
+        $products = Products::inRandomOrder()->limit(10)->get();
 
         foreach ($products as $product) {
-            $product->discount = 10;
-
-            $discountAmount = $product->price * ($product->discount / 100);
+            $discountAmount = $product->price * (10 / 100);
 
             $discountedPrice = $product->price - $discountAmount;
 

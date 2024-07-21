@@ -23,7 +23,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'abacate.png',
         'weight' => '230 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -33,7 +32,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'abacaxi.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -43,7 +41,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'abobora.png',
         'weight' => '1.3 Kg',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -53,7 +50,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'abobrinha.png',
         'weight' => '350 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -63,7 +59,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'verdura',
         'image' => 'agriao.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -73,7 +68,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'tempero',
         'image' => 'alecrim.png',
         'weight' => '6 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -83,7 +77,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'verdura',
         'image' => 'alface.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -93,7 +86,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'alho-roxo.png',
         'weight' => '70 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -103,7 +95,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'ameixa.png',
         'weight' => '100 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -113,7 +104,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'banana.png',
         'weight' => '110 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -123,7 +113,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'batata-doce.png',
         'weight' => '300 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -133,7 +122,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'batata-inglesa.png',
         'weight' => '150 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -143,7 +131,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'berinjela.png',
         'weight' => '300 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -153,7 +140,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'beterraba.png',
         'weight' => '200 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -163,7 +149,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'blueberry.png',
         'weight' => '125 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -173,7 +158,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'brocolis.png',
         'weight' => '300 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -183,7 +167,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'caju.png',
         'weight' => '150 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -193,7 +176,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'caqui.png',
         'weight' => '113 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -203,7 +185,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'cebola-roxa.png',
         'weight' => '230 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -213,7 +194,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'cebola.png',
         'weight' => '500 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -223,7 +203,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'tempero',
         'image' => 'cebolinha.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -233,7 +212,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'cenoura.png',
         'weight' => '500 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -243,7 +221,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'chuchu.png',
         'weight' => '500 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -253,7 +230,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'coco.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -263,7 +239,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'tempero',
         'image' => 'coentro.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -273,7 +248,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'couve-flor.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -283,7 +257,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'verdura',
         'image' => 'couve.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -293,7 +266,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'verdura',
         'image' => 'espinafre.png',
         'weight' => '230 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -303,7 +275,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'figo.png',
         'weight' => '230 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -313,7 +284,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'framboesa.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -323,7 +293,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'gengibre.png',
         'weight' => '500 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -333,7 +302,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'goiaba.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -343,7 +311,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'graviola.png',
         'weight' => '3.5 kg',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -353,7 +320,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'tempero',
         'image' => 'hortela.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -363,7 +329,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'inhame.png',
         'weight' => '500 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -373,7 +338,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'jilo.png',
         'weight' => '500 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -383,7 +347,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'kiwi.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -393,7 +356,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'laranja.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -403,7 +365,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'limao.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -413,7 +374,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'maca-verde.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -423,7 +383,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'maca.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -433,7 +392,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'mamao.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -443,7 +401,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'manga.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -453,7 +410,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'tempero',
         'image' => 'manjericao.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -463,7 +419,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'maracuja.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -473,7 +428,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'melancia.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -483,7 +437,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'melao.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -493,7 +446,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'milho.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -503,7 +455,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'morango.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -513,7 +464,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'pepino.png',
         'weight' => '500g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -523,7 +473,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'pera.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -533,7 +482,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'pessego.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -543,7 +491,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'pimenta-cumari.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -553,7 +500,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'pimentao-amarelo.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -563,7 +509,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'pimentao-verde.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -573,7 +518,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'pimentao-vermelho.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -583,7 +527,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'pinha.png',
         'weight' => '400 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -593,7 +536,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'pitaya.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -603,7 +545,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'quiabo.png',
         'weight' => '500 g',
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -613,7 +554,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'repolho-roxo.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -623,7 +563,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'repolho-verde.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -633,7 +572,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'tempero',
         'image' => 'salsinha.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -643,7 +581,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'tangerina.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -653,7 +590,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'vegetal',
         'image' => 'tomate.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -663,7 +599,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'uva-thompson.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
       [
@@ -673,7 +608,6 @@ class ProductsTableSeeder extends Seeder
         'category' => 'fruta',
         'image' => 'uva-vitoria.png',
         'weight' => null,
-        'discount' => null,
         'discount_price' => null,
       ],
     ];
