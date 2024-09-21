@@ -63,7 +63,7 @@ class UserController extends Controller
             $token = $user->createToken('auth_token')->plainTextToken;
 
             $tokenData = [
-                'acess_token' => $token,
+                'access_token' => $token,
                 'token_type' => 'Bearer',
             ];
 

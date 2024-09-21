@@ -33,5 +33,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
   Route::post('/products', [ProductController::class, 'getProducts']);
   Route::get('/product/{id}', [ProductController::class, 'getProduct']);
   Route::post('/products-by-ids', [ProductController::class, 'getProductsByIds']);
-  Route::get('/discounted-products', [ProductController::class, 'getDiscountedProducts']);
+  Route::get('/products/with-discount', [ProductController::class, 'getDiscountedProducts']);
 });

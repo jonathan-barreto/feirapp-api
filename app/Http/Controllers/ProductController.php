@@ -75,7 +75,7 @@ class ProductController extends Controller
 
     return response()->json([
       'data' => $products,
-      'message' => 'Nenhum produto foi encontrado.',
+      'message' => null,
     ], 200);
   }
 
@@ -84,9 +84,17 @@ class ProductController extends Controller
     $product = Products::find($request->id);
 
     if ($product) {
-      return ProductResource::collection([$product]);
+      return response()->json([
+        'data' => [
+          $product,
+        ],
+        'message' => null,
+      ], 200);
     } else {
-      return ProductResource::collection([]);
+      return response()->json([
+        'data' => null,
+        'message' => 'O Produto não foi encontrado.',
+      ], 200);
     }
   }
 
@@ -109,7 +117,7 @@ class ProductController extends Controller
 
   public function getDiscountedProducts()
   {
-    $products = Products::where('discount', '!=', 0)->get();
+    $products = Products::where('discount_price', '!=', null)->get();
     return ProductResource::collection($products);
   }
 }

@@ -19,23 +19,9 @@ class ImageController extends Controller
     //
     public function show($imageName)
     {
-       
-        $directory = public_path('storage/images');
+        $storagePath = storage_path('app/public/images/');
+        $archivePath = $storagePath . $imageName;
 
-        $files = File::allFiles($directory);
-
-        foreach ($files as $file) {
-            $name = $file->getFilename();
-
-            $imagePath = public_path("storage\images\\$name");
-
-            $manager = new ImageManager(Driver::class);
-
-            $readImage = $manager->read($imagePath);
-
-            $readImage->resize(300, 300);
-
-            $readImage->save(public_path("storage\\resize\\$name"), 10);
-        }
+        return response()->file($archivePath);
     }
 }
