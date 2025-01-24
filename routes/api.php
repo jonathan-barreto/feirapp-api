@@ -22,8 +22,6 @@ use App\Http\Controllers\UserController;
 Route::post('/user/login', [UserController::class, 'login']);
 Route::post('/user/register', [UserController::class, 'store']);
 
-Route::get('/image/{imageName}', [ImageController::class, 'show']);
-
 Route::middleware(['auth:sanctum'])->group(function () {
   // User route
   Route::get('/user/profile', [UserController::class, 'show']);
